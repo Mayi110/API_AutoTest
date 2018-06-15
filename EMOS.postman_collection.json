@@ -1,0 +1,846 @@
+{
+	"id": "1f0308f7-3f6a-4063-fa55-d518a609934a",
+	"name": "监控平台2期",
+	"description": "",
+	"order": [],
+	"folders": [
+		{
+			"auth": null,
+			"description": "",
+			"events": null,
+			"folder": null,
+			"folders_order": [],
+			"id": "806ceff3-a562-5825-ec0c-4ad99cc280f1",
+			"lastRevision": 2886056014,
+			"lastUpdatedBy": "2716120",
+			"name": "3.0.1",
+			"order": [
+				"7ae2790e-dd80-e437-e312-1e21530704f6",
+				"264f6a62-759d-42ec-5d86-b0639ab4ddee",
+				"dae9c2a2-0a48-1666-e452-e90e1e4947f9",
+				"d90e8884-7bc0-b2aa-c051-9c4bdd3066ab"
+			],
+			"owner": "2716120",
+			"variables": null
+		},
+		{
+			"auth": null,
+			"description": "",
+			"events": null,
+			"folder": null,
+			"folders_order": [],
+			"id": "42a75e75-266a-8415-fa36-3bd3a5253a97",
+			"lastRevision": 2886195405,
+			"lastUpdatedBy": "2716120",
+			"name": "3.0.2",
+			"order": [
+				"37cabd6c-2156-ffa1-08b4-c41995190794",
+				"814767cb-72e9-ef3b-de1c-45159dadf910",
+				"ce0f2e35-9799-68a1-344e-c04b128acf50",
+				"c461a4cf-e9fe-8fcb-7a64-f4e00df37592"
+			],
+			"owner": "2716120",
+			"variables": null
+		},
+		{
+			"auth": null,
+			"description": "",
+			"events": null,
+			"folder": null,
+			"folders_order": [],
+			"id": "9c1bc0a7-3adc-6103-e763-c05ad9f122e2",
+			"lastRevision": 2886253502,
+			"lastUpdatedBy": "2716120",
+			"name": "3.0.3",
+			"order": [
+				"876931f4-6644-4bf6-b5b6-50e889d8c189",
+				"0eba766b-8e97-cc05-622f-1a2b914fb9d2",
+				"7d391569-8e35-955c-f640-0e9fc91471b9",
+				"14d5403a-6849-21de-5d72-1d74c16a9b1b",
+				"4c3bdfed-0207-1b06-8d45-a35ad46d30c4",
+				"7e7f6504-312f-f0fd-dec4-20eacee4c577"
+			],
+			"owner": "2716120",
+			"variables": null
+		},
+		{
+			"auth": null,
+			"description": "",
+			"events": null,
+			"folder": null,
+			"folders_order": [],
+			"id": "37e37acc-a1ba-2664-f4ae-60c7a3cd9ffa",
+			"lastRevision": 3467861901,
+			"lastUpdatedBy": "2716120",
+			"name": "3.0.4",
+			"order": [
+				"34e61e17-7106-5363-8de1-2e877d4b5edb",
+				"3121ea40-7ae3-be05-dd48-f501901e6a34",
+				"822acdf2-8acd-b671-ebac-00a7b8f0d4b1"
+			],
+			"owner": "2716120",
+			"variables": null
+		}
+	],
+	"folders_order": [
+		"806ceff3-a562-5825-ec0c-4ad99cc280f1",
+		"42a75e75-266a-8415-fa36-3bd3a5253a97",
+		"9c1bc0a7-3adc-6103-e763-c05ad9f122e2",
+		"37e37acc-a1ba-2664-f4ae-60c7a3cd9ffa"
+	],
+	"timestamp": 0,
+	"owner": "2716120",
+	"public": false,
+	"requests": [
+		{
+			"folder": "9c1bc0a7-3adc-6103-e763-c05ad9f122e2",
+			"id": "0eba766b-8e97-cc05-622f-1a2b914fb9d2",
+			"name": "收件人批量维护（覆盖）",
+			"dataMode": "raw",
+			"data": [],
+			"auth": null,
+			"events": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"var data = JSON.parse(responseBody);\r",
+							"\r",
+							"tests[\"batchGroup:Status code is 200\"] = responseCode.code === 200;\r",
+							"tests[\"batchGroup:Body matches string success\"] = responseBody.has(\"true\"); \r",
+							"tests[\"batchGroup:Body matches string data\"] = responseBody.has(\"1\");\r",
+							"tests[\"batchGroup:Body contains message\"] = data.message === \"处理成功！\";"
+						]
+					}
+				}
+			],
+			"rawModeData": "{\r\n\"userRuleIds\":\"16034,2\",\r\n\"groupId\":22,\r\n\"flag\":\"update\"\r\n}",
+			"descriptionFormat": "html",
+			"description": null,
+			"variables": null,
+			"headers": "Content-Type: application/json\n",
+			"method": "POST",
+			"pathVariables": {},
+			"url": "{{url}}/groupm/batchGroup",
+			"preRequestScript": null,
+			"tests": "var data = JSON.parse(responseBody);\r\n\r\ntests[\"batchGroup:Status code is 200\"] = responseCode.code === 200;\r\ntests[\"batchGroup:Body matches string success\"] = responseBody.has(\"true\"); \r\ntests[\"batchGroup:Body matches string data\"] = responseBody.has(\"1\");\r\ntests[\"batchGroup:Body contains message\"] = data.message === \"处理成功！\";",
+			"currentHelper": null,
+			"helperAttributes": null,
+			"queryParams": [],
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"enabled": true
+				}
+			],
+			"pathVariableData": [],
+			"responses": [],
+			"collectionId": "1f0308f7-3f6a-4063-fa55-d518a609934a"
+		},
+		{
+			"folder": "9c1bc0a7-3adc-6103-e763-c05ad9f122e2",
+			"id": "14d5403a-6849-21de-5d72-1d74c16a9b1b",
+			"name": "获取有服务的群组",
+			"dataMode": "params",
+			"data": null,
+			"auth": null,
+			"events": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"var data = JSON.parse(responseBody);\r",
+							"\r",
+							"tests[\"getGroupList:Status code is 200\"] = responseCode.code === 200;\r",
+							"tests[\"getGroupList:Body matches string success\"] = responseBody.has(\"true\"); \r",
+							"tests[\"getGroupList:Body matches string data\"] = responseBody.has(\"文思\");\r",
+							"tests[\"getGroupList:Body contains message\"] = data.message === \"处理成功！\";"
+						]
+					}
+				}
+			],
+			"rawModeData": null,
+			"descriptionFormat": "html",
+			"description": null,
+			"variables": null,
+			"headers": "",
+			"method": "GET",
+			"pathVariables": {},
+			"url": "{{url}}/groupm/getGroupList",
+			"preRequestScript": null,
+			"tests": "var data = JSON.parse(responseBody);\r\n\r\ntests[\"getGroupList:Status code is 200\"] = responseCode.code === 200;\r\ntests[\"getGroupList:Body matches string success\"] = responseBody.has(\"true\"); \r\ntests[\"getGroupList:Body matches string data\"] = responseBody.has(\"文思\");\r\ntests[\"getGroupList:Body contains message\"] = data.message === \"处理成功！\";",
+			"currentHelper": null,
+			"helperAttributes": null,
+			"queryParams": [],
+			"headerData": [],
+			"pathVariableData": [],
+			"responses": [],
+			"collectionId": "1f0308f7-3f6a-4063-fa55-d518a609934a"
+		},
+		{
+			"folder": "806ceff3-a562-5825-ec0c-4ad99cc280f1",
+			"id": "264f6a62-759d-42ec-5d86-b0639ab4ddee",
+			"name": "删除邮件组",
+			"dataMode": "raw",
+			"data": [],
+			"auth": null,
+			"events": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"var data = JSON.parse(responseBody);\r",
+							"\r",
+							"tests[\"deleteGroup:Status code is 200\"] = responseCode.code === 200;\r",
+							"tests[\"deleteGroup:Body matches string success\"] = responseBody.has(\"true\"); \r",
+							"tests[\"deleteGroup:Body matches string data\"] = responseBody.has(0);\r",
+							"tests[\"deleteGroup:Body contains message\"] = data.message === \"处理成功！\";"
+						]
+					}
+				}
+			],
+			"rawModeData": "",
+			"descriptionFormat": "html",
+			"description": null,
+			"variables": null,
+			"headers": "Content-Type: application/json\n",
+			"method": "POST",
+			"pathVariables": {},
+			"url": "{{url}}/groupm/deleteGroup/20",
+			"preRequestScript": null,
+			"tests": "var data = JSON.parse(responseBody);\r\n\r\ntests[\"deleteGroup:Status code is 200\"] = responseCode.code === 200;\r\ntests[\"deleteGroup:Body matches string success\"] = responseBody.has(\"true\"); \r\ntests[\"deleteGroup:Body matches string data\"] = responseBody.has(0);\r\ntests[\"deleteGroup:Body contains message\"] = data.message === \"处理成功！\";",
+			"currentHelper": null,
+			"helperAttributes": null,
+			"queryParams": [],
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"enabled": true
+				}
+			],
+			"pathVariableData": [],
+			"responses": [],
+			"collectionId": "1f0308f7-3f6a-4063-fa55-d518a609934a"
+		},
+		{
+			"folder": "37e37acc-a1ba-2664-f4ae-60c7a3cd9ffa",
+			"id": "3121ea40-7ae3-be05-dd48-f501901e6a34",
+			"name": "删除标签",
+			"dataMode": "raw",
+			"data": [],
+			"auth": null,
+			"events": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"var data = JSON.parse(responseBody);\r",
+							"\r",
+							"tests[\"batchGroup:Status code is 200\"] = responseCode.code === 200;\r",
+							"tests[\"batchGroup:Body matches string success\"] = responseBody.has(\"true\"); \r",
+							"tests[\"batchGroup:Body matches string data\"] = responseBody.has(0);\r",
+							"tests[\"batchGroup:Body contains message\"] = data.message === \"处理成功！\";"
+						]
+					}
+				}
+			],
+			"rawModeData": "",
+			"descriptionFormat": "html",
+			"description": null,
+			"variables": null,
+			"headers": "Content-Type: application/json\n",
+			"method": "POST",
+			"pathVariables": {},
+			"url": "{{url}}/groupm/deleteUserLabel/5",
+			"preRequestScript": null,
+			"tests": "var data = JSON.parse(responseBody);\r\n\r\ntests[\"batchGroup:Status code is 200\"] = responseCode.code === 200;\r\ntests[\"batchGroup:Body matches string success\"] = responseBody.has(\"true\"); \r\ntests[\"batchGroup:Body matches string data\"] = responseBody.has(0);\r\ntests[\"batchGroup:Body contains message\"] = data.message === \"处理成功！\";",
+			"currentHelper": null,
+			"helperAttributes": null,
+			"queryParams": [],
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"pathVariableData": [],
+			"responses": [],
+			"collectionId": "1f0308f7-3f6a-4063-fa55-d518a609934a"
+		},
+		{
+			"folder": "37e37acc-a1ba-2664-f4ae-60c7a3cd9ffa",
+			"id": "34e61e17-7106-5363-8de1-2e877d4b5edb",
+			"name": "新增标签",
+			"dataMode": "raw",
+			"data": [],
+			"auth": null,
+			"events": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"var data = JSON.parse(responseBody);\r",
+							"\r",
+							"tests[\"addUserLabel:Status code is 200\"] = responseCode.code === 200;\r",
+							"tests[\"addUserLabel:Body matches string success\"] = responseBody.has(\"true\"); \r",
+							"tests[\"addUserLabel:Body contains message\"] = data.message === \"处理成功！\";"
+						]
+					}
+				}
+			],
+			"rawModeData": "{\r\n\"parentId\":5,\r\n\"labelType\":\"标签类型\",\r\n\"labelName\":\"标签名称\"\r\n}",
+			"descriptionFormat": "html",
+			"description": null,
+			"variables": null,
+			"headers": "Content-Type: application/json\n",
+			"method": "POST",
+			"pathVariables": {},
+			"url": "{{url}}/groupm/addUserLabel",
+			"preRequestScript": null,
+			"tests": "var data = JSON.parse(responseBody);\r\n\r\ntests[\"addUserLabel:Status code is 200\"] = responseCode.code === 200;\r\ntests[\"addUserLabel:Body matches string success\"] = responseBody.has(\"true\"); \r\ntests[\"addUserLabel:Body contains message\"] = data.message === \"处理成功！\";",
+			"currentHelper": null,
+			"helperAttributes": null,
+			"queryParams": [],
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"pathVariableData": [],
+			"responses": [],
+			"collectionId": "1f0308f7-3f6a-4063-fa55-d518a609934a"
+		},
+		{
+			"id": "37cabd6c-2156-ffa1-08b4-c41995190794",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "{{url}}/groupm/addMember",
+			"folder": "42a75e75-266a-8415-fa36-3bd3a5253a97",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"tests": "var data = JSON.parse(responseBody);\r\n\r\ntests[\"addMember:Status code is 200\"] = responseCode.code === 200;\r\ntests[\"addMember:Body matches string success\"] = responseBody.has(\"true\"); \r\ntests[\"addMember:Body contains message\"] = data.message === \"处理成功！\";",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1527124526929,
+			"name": "添加邮件组成员",
+			"description": null,
+			"collectionId": "1f0308f7-3f6a-4063-fa55-d518a609934a",
+			"responses": [],
+			"rawModeData": "{\r\n\"groupId\":22,\r\n\"usernameEN\":\"saiKm2\",\r\n\" usernameCH\":\"\",\r\n\"lastmodUser\":\"\",\r\n\"note\":\"\"\r\n}"
+		},
+		{
+			"folder": "9c1bc0a7-3adc-6103-e763-c05ad9f122e2",
+			"id": "4c3bdfed-0207-1b06-8d45-a35ad46d30c4",
+			"name": "获取群组下的服务",
+			"dataMode": "raw",
+			"data": [],
+			"auth": null,
+			"events": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"var data = JSON.parse(responseBody);\r",
+							"\r",
+							"tests[\"getUserRules:Status code is 200\"] = responseCode.code === 200;\r",
+							"tests[\"getUserRules:Body matches string success\"] = responseBody.has(\"true\"); \r",
+							"tests[\"getUserRules:Body matches string data\"] = responseBody.has(\"beginDate\");\r",
+							"tests[\"getUserRules:Body contains message\"] = data.message === \"处理成功！\";"
+						]
+					}
+				}
+			],
+			"rawModeData": "{\r\n\"groupId\":1\r\n}",
+			"descriptionFormat": "html",
+			"description": null,
+			"variables": null,
+			"headers": "Content-Type: application/json\n",
+			"method": "POST",
+			"pathVariables": {},
+			"url": "{{url}}/groupm/getUserRules",
+			"preRequestScript": null,
+			"tests": "var data = JSON.parse(responseBody);\r\n\r\ntests[\"getUserRules:Status code is 200\"] = responseCode.code === 200;\r\ntests[\"getUserRules:Body matches string success\"] = responseBody.has(\"true\"); \r\ntests[\"getUserRules:Body matches string data\"] = responseBody.has(\"beginDate\");\r\ntests[\"getUserRules:Body contains message\"] = data.message === \"处理成功！\";",
+			"currentHelper": null,
+			"helperAttributes": null,
+			"queryParams": [],
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"enabled": true
+				}
+			],
+			"pathVariableData": [],
+			"responses": [],
+			"collectionId": "1f0308f7-3f6a-4063-fa55-d518a609934a"
+		},
+		{
+			"folder": "806ceff3-a562-5825-ec0c-4ad99cc280f1",
+			"id": "7ae2790e-dd80-e437-e312-1e21530704f6",
+			"name": "添加邮件组",
+			"dataMode": "raw",
+			"data": [],
+			"auth": null,
+			"events": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"var data = JSON.parse(responseBody);\r",
+							"\r",
+							"tests[\"addGroup:Status code is 200\"] = responseCode.code === 200;\r",
+							"tests[\"addGroup:Body matches string success\"] = responseBody.has(\"true\"); \r",
+							"tests[\"addGroup:Body matches string data\"] = responseBody.has(20);\r",
+							"tests[\"addGroup:Body contains message\"] = data.message === \"处理成功！\";"
+						]
+					}
+				}
+			],
+			"rawModeData": "{\r\n\"groupName\":\"aa\",\r\n\"note\":\"ss\",\r\n\"lastmodUser\":\"dd\"\r\n}",
+			"descriptionFormat": "html",
+			"description": null,
+			"variables": null,
+			"headers": "Content-Type: application/json\n",
+			"method": "POST",
+			"pathVariables": {},
+			"url": "{{url}}/groupm/addGroup",
+			"preRequestScript": null,
+			"tests": "var data = JSON.parse(responseBody);\r\n\r\ntests[\"addGroup:Status code is 200\"] = responseCode.code === 200;\r\ntests[\"addGroup:Body matches string success\"] = responseBody.has(\"true\"); \r\ntests[\"addGroup:Body matches string data\"] = responseBody.has(20);\r\ntests[\"addGroup:Body contains message\"] = data.message === \"处理成功！\";",
+			"currentHelper": null,
+			"helperAttributes": null,
+			"queryParams": [],
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"enabled": true
+				}
+			],
+			"pathVariableData": [],
+			"responses": [],
+			"collectionId": "1f0308f7-3f6a-4063-fa55-d518a609934a"
+		},
+		{
+			"folder": "9c1bc0a7-3adc-6103-e763-c05ad9f122e2",
+			"id": "7d391569-8e35-955c-f640-0e9fc91471b9",
+			"name": "从组中删除一个服务",
+			"dataMode": "raw",
+			"data": [],
+			"auth": null,
+			"events": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"var data = JSON.parse(responseBody);\r",
+							"\r",
+							"tests[\"delRuleOnGroup:Status code is 200\"] = responseCode.code === 200;\r",
+							"tests[\"delRuleOnGroup:Body matches string success\"] = responseBody.has(\"true\"); \r",
+							"tests[\"delRuleOnGroup:Body matches string data\"] = responseBody.has(1);\r",
+							"tests[\"delRuleOnGroup:Body contains message\"] = data.message === \"处理成功！\";"
+						]
+					}
+				}
+			],
+			"rawModeData": "{\r\n\"userRuleId\":15995,\r\n\"groupId\":1\r\n}",
+			"descriptionFormat": "html",
+			"description": null,
+			"variables": null,
+			"headers": "Content-Type: application/json\n",
+			"method": "POST",
+			"pathVariables": {},
+			"url": "{{url}}/groupm/delRuleOnGroup",
+			"preRequestScript": null,
+			"tests": "var data = JSON.parse(responseBody);\r\n\r\ntests[\"delRuleOnGroup:Status code is 200\"] = responseCode.code === 200;\r\ntests[\"delRuleOnGroup:Body matches string success\"] = responseBody.has(\"true\"); \r\ntests[\"delRuleOnGroup:Body matches string data\"] = responseBody.has(1);\r\ntests[\"delRuleOnGroup:Body contains message\"] = data.message === \"处理成功！\";",
+			"currentHelper": null,
+			"helperAttributes": null,
+			"queryParams": [],
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"pathVariableData": [],
+			"responses": [],
+			"collectionId": "1f0308f7-3f6a-4063-fa55-d518a609934a"
+		},
+		{
+			"folder": "9c1bc0a7-3adc-6103-e763-c05ad9f122e2",
+			"id": "7e7f6504-312f-f0fd-dec4-20eacee4c577",
+			"name": "维护群组中服务",
+			"dataMode": "raw",
+			"data": [],
+			"auth": null,
+			"events": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"var data = JSON.parse(responseBody);\r",
+							"\r",
+							"tests[\"manageGroupRule:Status code is 200\"] = responseCode.code === 200;\r",
+							"tests[\"manageGroupRule:Body matches string success\"] = responseBody.has(\"true\"); \r",
+							"tests[\"manageGroupRule:Body matches string data\"] = responseBody.has(1); \r",
+							"tests[\"manageGroupRule:Body contains message\"] = data.message === \"处理成功！\";"
+						]
+					}
+				}
+			],
+			"rawModeData": "{\r\n\"addUserRuleIds\":\"1,2\",\r\n\"delUserRuleIds\":\"0,1\",\r\n\"groupId\":1\r\n}",
+			"descriptionFormat": "html",
+			"description": null,
+			"variables": null,
+			"headers": "Content-Type: application/json\n",
+			"method": "POST",
+			"pathVariables": {},
+			"url": "{{url}}/groupm/manageGroupRule",
+			"preRequestScript": null,
+			"tests": "var data = JSON.parse(responseBody);\r\n\r\ntests[\"manageGroupRule:Status code is 200\"] = responseCode.code === 200;\r\ntests[\"manageGroupRule:Body matches string success\"] = responseBody.has(\"true\"); \r\ntests[\"manageGroupRule:Body matches string data\"] = responseBody.has(1); \r\ntests[\"manageGroupRule:Body contains message\"] = data.message === \"处理成功！\";",
+			"currentHelper": null,
+			"helperAttributes": null,
+			"queryParams": [],
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"pathVariableData": [],
+			"responses": [],
+			"collectionId": "1f0308f7-3f6a-4063-fa55-d518a609934a"
+		},
+		{
+			"folder": "42a75e75-266a-8415-fa36-3bd3a5253a97",
+			"id": "814767cb-72e9-ef3b-de1c-45159dadf910",
+			"name": "删除邮件组成员",
+			"dataMode": "raw",
+			"data": [],
+			"auth": null,
+			"events": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"var data = JSON.parse(responseBody);\r",
+							"\r",
+							"tests[\"deleteMember:Status code is 200\"] = responseCode.code === 200;\r",
+							"tests[\"deleteMember:Body matches string success\"] = responseBody.has(\"true\"); \r",
+							"tests[\"deleteMember:Body contains message\"] = data.message === \"处理成功！\";"
+						]
+					}
+				}
+			],
+			"rawModeData": "",
+			"descriptionFormat": "html",
+			"description": null,
+			"variables": null,
+			"headers": "Content-Type: application/json\n",
+			"method": "POST",
+			"pathVariables": {},
+			"url": "{{url}}/groupm/deleteMember/129",
+			"preRequestScript": null,
+			"tests": "var data = JSON.parse(responseBody);\r\n\r\ntests[\"deleteMember:Status code is 200\"] = responseCode.code === 200;\r\ntests[\"deleteMember:Body matches string success\"] = responseBody.has(\"true\"); \r\ntests[\"deleteMember:Body contains message\"] = data.message === \"处理成功！\";",
+			"currentHelper": null,
+			"helperAttributes": null,
+			"queryParams": [],
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"enabled": true
+				}
+			],
+			"pathVariableData": [],
+			"responses": [],
+			"collectionId": "1f0308f7-3f6a-4063-fa55-d518a609934a"
+		},
+		{
+			"folder": "37e37acc-a1ba-2664-f4ae-60c7a3cd9ffa",
+			"id": "822acdf2-8acd-b671-ebac-00a7b8f0d4b1",
+			"name": "获取监控标签列表",
+			"dataMode": "raw",
+			"data": [],
+			"auth": null,
+			"events": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"var data = JSON.parse(responseBody);\r",
+							"\r",
+							"tests[\"batchGroup:Status code is 200\"] = responseCode.code === 200;\r",
+							"tests[\"batchGroup:Body matches string success\"] = responseBody.has(\"true\"); \r",
+							"tests[\"batchGroup:Body contains message\"] = data.message === \"处理成功！\";\r",
+							""
+						]
+					}
+				}
+			],
+			"rawModeData": "{\r\n\"parentId\":4,\r\n\"labelType\":\"标签类型\"\r\n}\r\n",
+			"descriptionFormat": "html",
+			"description": null,
+			"variables": null,
+			"headers": "Content-Type: application/json\n",
+			"method": "POST",
+			"pathVariables": {},
+			"url": "{{url}}/groupm/getUserLabelList",
+			"preRequestScript": null,
+			"tests": "var data = JSON.parse(responseBody);\r\n\r\ntests[\"batchGroup:Status code is 200\"] = responseCode.code === 200;\r\ntests[\"batchGroup:Body matches string success\"] = responseBody.has(\"true\"); \r\ntests[\"batchGroup:Body contains message\"] = data.message === \"处理成功！\";\r\n",
+			"currentHelper": null,
+			"helperAttributes": null,
+			"queryParams": [],
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"pathVariableData": [],
+			"responses": [],
+			"collectionId": "1f0308f7-3f6a-4063-fa55-d518a609934a"
+		},
+		{
+			"folder": "9c1bc0a7-3adc-6103-e763-c05ad9f122e2",
+			"id": "876931f4-6644-4bf6-b5b6-50e889d8c189",
+			"name": "收件人批量维护(新增)",
+			"dataMode": "raw",
+			"data": [],
+			"auth": null,
+			"events": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"var data = JSON.parse(responseBody);\r",
+							"\r",
+							"tests[\"batchGroup:Status code is 200\"] = responseCode.code === 200;\r",
+							"tests[\"batchGroup:Body matches string success\"] = responseBody.has(\"true\"); \r",
+							"tests[\"batchGroup:Body matches string data\"] = responseBody.has(\"1\");\r",
+							"tests[\"batchGroup:Body contains message\"] = data.message === \"处理成功！\";"
+						]
+					}
+				}
+			],
+			"rawModeData": "{\r\n\"userRuleIds\":\"16034,2\",\r\n\"groupId\":22,\r\n\"flag\":\"add\"\r\n}",
+			"descriptionFormat": "html",
+			"description": null,
+			"variables": null,
+			"headers": "Content-Type: application/json\n",
+			"method": "POST",
+			"pathVariables": {},
+			"url": "{{url}}/groupm/batchGroup",
+			"preRequestScript": null,
+			"tests": "var data = JSON.parse(responseBody);\r\n\r\ntests[\"batchGroup:Status code is 200\"] = responseCode.code === 200;\r\ntests[\"batchGroup:Body matches string success\"] = responseBody.has(\"true\"); \r\ntests[\"batchGroup:Body matches string data\"] = responseBody.has(\"1\");\r\ntests[\"batchGroup:Body contains message\"] = data.message === \"处理成功！\";",
+			"currentHelper": null,
+			"helperAttributes": null,
+			"queryParams": [],
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"enabled": true
+				}
+			],
+			"pathVariableData": [],
+			"responses": [],
+			"collectionId": "1f0308f7-3f6a-4063-fa55-d518a609934a"
+		},
+		{
+			"id": "c461a4cf-e9fe-8fcb-7a64-f4e00df37592",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "{{url}}/groupm/updateMember",
+			"folder": "42a75e75-266a-8415-fa36-3bd3a5253a97",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"tests": "var data = JSON.parse(responseBody);\r\n\r\ntests[\"updateMember:Status code is 200\"] = responseCode.code === 200;\r\ntests[\"updateMember:Body matches string success\"] = responseBody.has(\"true\"); \r\ntests[\"updateMember:Body matches string data\"] = responseBody.has(1);\r\ntests[\"updateMember:Body contains message\"] = data.message === \"处理成功！\";",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1525917650533,
+			"name": "修改邮件组成员",
+			"description": null,
+			"collectionId": "1f0308f7-3f6a-4063-fa55-d518a609934a",
+			"responses": [],
+			"rawModeData": "{\r\n\"id\":\"72\",\r\n\"groupId\":\"1\",\r\n\"usernameEN\":\"lisuyou\",\r\n\"usernameCH\":\"李素游\",\r\n\"lastmodUser\":null,\r\n\"note\":\"\"\r\n}\r\n"
+		},
+		{
+			"folder": "42a75e75-266a-8415-fa36-3bd3a5253a97",
+			"id": "ce0f2e35-9799-68a1-344e-c04b128acf50",
+			"name": "获取邮件组成员",
+			"dataMode": "params",
+			"data": null,
+			"auth": null,
+			"events": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"var data = JSON.parse(responseBody);\r",
+							"\r",
+							"tests[\"getGroupMember:Status code is 200\"] = responseCode.code === 200;\r",
+							"tests[\"getGroupMember:Body matches string success\"] = responseBody.has(\"true\"); \r",
+							"tests[\"getGroupMember:Body matches string data\"] = responseBody.has(\"groupId\");\r",
+							"tests[\"getGroupMember:Body contains message\"] = data.message === \"处理成功！\";"
+						]
+					}
+				}
+			],
+			"rawModeData": null,
+			"descriptionFormat": "html",
+			"description": null,
+			"variables": null,
+			"headers": "",
+			"method": "GET",
+			"pathVariables": {},
+			"url": "{{url}}/groupm/getGroupMember/22",
+			"preRequestScript": null,
+			"tests": "var data = JSON.parse(responseBody);\r\n\r\ntests[\"getGroupMember:Status code is 200\"] = responseCode.code === 200;\r\ntests[\"getGroupMember:Body matches string success\"] = responseBody.has(\"true\"); \r\ntests[\"getGroupMember:Body matches string data\"] = responseBody.has(\"groupId\");\r\ntests[\"getGroupMember:Body contains message\"] = data.message === \"处理成功！\";",
+			"currentHelper": null,
+			"helperAttributes": null,
+			"queryParams": [],
+			"headerData": [],
+			"pathVariableData": [],
+			"responses": [],
+			"collectionId": "1f0308f7-3f6a-4063-fa55-d518a609934a"
+		},
+		{
+			"folder": "806ceff3-a562-5825-ec0c-4ad99cc280f1",
+			"id": "d90e8884-7bc0-b2aa-c051-9c4bdd3066ab",
+			"name": "修改邮件组",
+			"dataMode": "raw",
+			"data": [],
+			"auth": null,
+			"events": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"var data = JSON.parse(responseBody);\r",
+							"\r",
+							"tests[\"updateGroup:Status code is 200\"] = responseCode.code === 200;\r",
+							"tests[\"updateGroup:Body matches string success\"] = responseBody.has(\"true\"); \r",
+							"tests[\"updateGroup:Body matches string data\"] = responseBody.has(1);\r",
+							"tests[\"updateGroup:Body contains message\"] = data.message === \"处理成功！\";"
+						]
+					}
+				}
+			],
+			"rawModeData": "{\r\n\"id\":1,\r\n\"groupName \":\"aa\",\r\n\"note\":\"ss\",\r\n\"lastmodUser\":\"dd\"\r\n}\r\n",
+			"descriptionFormat": "html",
+			"description": null,
+			"variables": null,
+			"headers": "Content-Type: application/json\n",
+			"method": "POST",
+			"pathVariables": {},
+			"url": "{{url}}/groupm/updateGroup",
+			"preRequestScript": null,
+			"tests": "var data = JSON.parse(responseBody);\r\n\r\ntests[\"updateGroup:Status code is 200\"] = responseCode.code === 200;\r\ntests[\"updateGroup:Body matches string success\"] = responseBody.has(\"true\"); \r\ntests[\"updateGroup:Body matches string data\"] = responseBody.has(1);\r\ntests[\"updateGroup:Body contains message\"] = data.message === \"处理成功！\";",
+			"currentHelper": null,
+			"helperAttributes": null,
+			"queryParams": [],
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"enabled": true
+				}
+			],
+			"pathVariableData": [],
+			"responses": [],
+			"collectionId": "1f0308f7-3f6a-4063-fa55-d518a609934a"
+		},
+		{
+			"folder": "806ceff3-a562-5825-ec0c-4ad99cc280f1",
+			"id": "dae9c2a2-0a48-1666-e452-e90e1e4947f9",
+			"name": "获取邮件组",
+			"dataMode": "params",
+			"data": null,
+			"auth": null,
+			"events": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"var data = JSON.parse(responseBody);\r",
+							"\r",
+							"tests[\"getGroup:Status code is 200\"] = responseCode.code === 200;\r",
+							"tests[\"getGroup:Body matches string success\"] = responseBody.has(\"true\"); \r",
+							"tests[\"getGroup:Body matches string data\"] = responseBody.has(\"groupName\");\r",
+							"tests[\"getGroup:Body contains message\"] = data.message === \"处理成功！\";"
+						]
+					}
+				}
+			],
+			"rawModeData": null,
+			"descriptionFormat": "html",
+			"description": null,
+			"variables": null,
+			"headers": "",
+			"method": "GET",
+			"pathVariables": {},
+			"url": "{{url}}/groupm/getGroup",
+			"preRequestScript": null,
+			"tests": "var data = JSON.parse(responseBody);\r\n\r\ntests[\"getGroup:Status code is 200\"] = responseCode.code === 200;\r\ntests[\"getGroup:Body matches string success\"] = responseBody.has(\"true\"); \r\ntests[\"getGroup:Body matches string data\"] = responseBody.has(\"groupName\");\r\ntests[\"getGroup:Body contains message\"] = data.message === \"处理成功！\";",
+			"currentHelper": null,
+			"helperAttributes": null,
+			"queryParams": [],
+			"headerData": [],
+			"pathVariableData": [],
+			"responses": [],
+			"collectionId": "1f0308f7-3f6a-4063-fa55-d518a609934a"
+		}
+	]
+}
